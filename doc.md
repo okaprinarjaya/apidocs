@@ -6,6 +6,8 @@
 * [POST /daftar-kk](#daftar-kk)
 * [GET /kk-terpilih/{email}](#kk-terpilih)
 * [POST /responden-terpilih](#responden-terpilih)
+* [GET /kk-tidak-terpilih/{email}/{rtId}](#kk-tidak-terpilih)
+* [POST /responden-terpilih-pengganti](#responden-terpilih-pengganti)
 
 
 ## GET /reset-data <a id="reset-data"></a>
@@ -288,7 +290,7 @@ Mengambil / mendapatkan semua KK yg terpilih.
 ## POST /responden-terpilih <a id="responden-terpilih"></a>
 
 Input daftar anggota keluarga di suatu KK yg terpilih, lalu mendapatkan anggota keluarga yg terpilih sebagai responden terpilih. 
-Setelah menginput KK - KK yang terpilih di semua RT/RW yg terpilih, maka akan didapatkan 2 KK yg terpilih di masing-masing RT/RW 
+Setelah menginput semua KK di semua RT/RW yg terpilih, maka akan didapatkan 2 KK yg terpilih di masing-masing RT/RW 
 yg terpilih. 
 
 Total KK yg terpilih ada 8 KK yaitu dengan id KK sebagai berikut: `2, 18, 106, 104, 203, 211, 313, 312`
@@ -296,19 +298,19 @@ Total KK yg terpilih ada 8 KK yaitu dengan id KK sebagai berikut: `2, 18, 106, 1
 ### Request (Body: raw, application/json)
 ```json
 {
-	"data" : { 
-		"phoneId" : "desadua@yahoo.com",
-		"kk_id" : 2,
-		"responden_status" : "Asli",
-		"kk_id_asli" : null,
-		"item_kk" : [
-			["Member 1 KK 1","L",30,"keterangan 1"],
-			["Member 2 KK 1","P", 17, "keterangan 2"],
-			["Member 3 KK 1","P", 25, "keterangan 3"],
-			["Member 4 KK 1","P", 28, "keterangan 4"],
-			["Member 5 KK 1","L", 25, "keterangan 4"]
-		]
-	}
+    "data" : {
+        "phoneId" : "desadua@yahoo.com",
+        "kk_id" : 2,
+        "responden_status" : "Asli",
+        "kk_id_asli" : null,
+        "item_kk" : [
+            ["Member 1 KK 1", "L", 30, "Hubungan dengan member lainnya", "Keterangan 1"],
+            ["Member 2 KK 1", "P", 17, "Hubungan dengan member lainnya", "Keterangan 2"],
+            ["Member 3 KK 1", "P", 25, "Hubungan dengan member lainnya", "Keterangan 3"],
+            ["Member 4 KK 1", "P", 28, "Hubungan dengan member lainnya", "Keterangan 4"],
+            ["Member 5 KK 1", "L", 25, "Hubungan dengan member lainnya", "Keterangan 4"]
+        ]
+    }
 }
 ```
 
@@ -334,19 +336,19 @@ ditentukan diatas. Berikut adalah contoh request kedua:
 ### Request kedua (Body: raw, application/json)
 ```json
 {
-	"data" : { 
-		"phoneId" : "desadua@yahoo.com",
-		"kk_id" : 18,
-		"responden_status" : "Asli",
-		"kk_id_asli" : null,
-		"item_kk" : [
-			["Member 1 KK 2","L",30,"keterangan 1"],
-			["Member 2 KK 2","P", 17, "keterangan 2"],
-			["Member 3 KK 2","P", 25, "keterangan 3"],
-			["Member 4 KK 2","P", 28, "keterangan 4"],
-			["Member 5 KK 2","L", 25, "keterangan 4"]
-		]
-	}
+    "data" : {
+        "phoneId" : "desadua@yahoo.com",
+        "kk_id" : 18,
+        "responden_status" : "Asli",
+        "kk_id_asli" : null,
+        "item_kk" : [
+            ["Member 1 KK 2", "L", 30, "Hubungan dengan member lainnya", "Keterangan 1"],
+            ["Member 2 KK 2", "P", 17, "Hubungan dengan member lainnya", "Keterangan 2"],
+            ["Member 3 KK 2", "P", 25, "Hubungan dengan member lainnya", "Keterangan 3"],
+            ["Member 4 KK 2", "P", 28, "Hubungan dengan member lainnya", "Keterangan 4"],
+            ["Member 5 KK 2", "L", 25, "Hubungan dengan member lainnya", "Keterangan 4"]
+        ]
+    }
 }
 ```
 
@@ -366,3 +368,41 @@ ditentukan diatas. Berikut adalah contoh request kedua:
 }
 ```
 
+Begitu seterusnya sampai request ke-8
+
+## GET /kk-tidak-terpilih/{email}/{rtId} <a id="kk-tidak-terpilih"></a>
+
+Untuk melisting / menampilkan semua KK lainnya yg tidak terpilih. Dimana semua KK yg tidak terpilih itu berasal dari suatu RT/RW yg terpilih. Ini untuk memilih KK pengganti yg akan diinput anggota keluarganya utk mencari responden pengganti.
+
+### Request
+
+`GET /kk-tidak-terpilih/desadua@yahoo.com/91`
+
+## POST /responden-terpilih-pengganti <a id="responden-terpilih-pengganti"></a>
+
+Input daftar anggota keluarga di suatu KK yg tidak terpilih, lalu mendapatkan anggota keluarga yg terpilih sebagai responden terpilih.
+PERHATIKAN! di json request data perbedaannya ada di `kk_id_pengganti` , `kk_id_asli` , `nomor_urut_kuisioner` . 
+
+`kk_id_pengganti` didapatkan dari interaksi yg memanggil service `GET /kk-tidak-terpilih/{email}/{rtId}` .
+`kk_id_asli` di-passing dari UI yang ada tampilan tombol PENGGANTI nya.
+`nomor_urut_kuisioner` di-passing juga dari UI yang ada tampilan tombol PENGGANTI nya.
+
+### Request (Body: raw, application/json)
+```json
+{
+    "data" : {
+        "phoneId" : "desadua@yahoo.com",
+        "kk_id_pengganti" : 5,
+        "responden_status" : "Pengganti",
+        "kk_id_asli" : 2,
+        "nomor_urut_kuisioner" : 9,
+        "item_kk" : [
+            ["Member 1 KK Ganti", "L", 30, "Hubungan dengan member lainnya", "Keterangan 1"],
+            ["Member 2 KK Ganti", "P", 17, "Hubungan dengan member lainnya", "Keterangan 2"],
+            ["Member 3 KK Ganti", "P", 25, "Hubungan dengan member lainnya", "Keterangan 3"],
+            ["Member 4 KK Ganti", "P", 28, "Hubungan dengan member lainnya", "Keterangan 4"],
+            ["Member 5 KK Ganti", "L", 25, "Hubungan dengan member lainnya", "Keterangan 4"]
+        ]
+    }
+}
+```
