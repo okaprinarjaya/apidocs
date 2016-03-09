@@ -1,6 +1,20 @@
-## GET /reset-data
+# List API
+
+* [GET /reset-data](#reset-data)
+* [POST /survei](#survei)
+* [POST /daftar-rt-rw](#daftar-rt-rw)
+* [POST /daftar-kk](#daftar-kk)
+* [GET /kk-terpilih/{email}](#kk-terpilih)
+* [POST /responden-terpilih](#responden-terpilih)
+
+
+## GET /reset-data <a id="reset-data"></a>
 
 Untuk mereset data agar dapat mengulang melakukan test dari awal sampai akhir. 
+
+### Request
+
+`GET /reset-data'
 
 ### Response
 
@@ -10,7 +24,7 @@ Untuk mereset data agar dapat mengulang melakukan test dari awal sampai akhir.
 }
 ```
 
-## POST /survei
+## POST /survei <a id="survei"></a>
 
 Untuk melakukan identifikasi diri ke server. Survei apa? Siapa yg bertugas? Bertugas di desa mana? . Url service API ini dipanggil 
 pada menu / tombol 'Download Survei' aplikasi mobile.
@@ -37,7 +51,7 @@ pada menu / tombol 'Download Survei' aplikasi mobile.
 }
 ```
 
-## POST /daftar-rt-rw (Body: raw, application/json)
+## POST /daftar-rt-rw <a id="daftar-rt-rw"></a>
 
 Menginput informasi RT/RW yang ada di sebuah desa. Hasil dari proses input RT/RW adalah RT/RW terpilih.
 
@@ -87,7 +101,7 @@ Menginput informasi RT/RW yang ada di sebuah desa. Hasil dari proses input RT/RW
 Catat! RT/RW yang terpilih adalah dengan nomor: `91, 5, 22, 3` . Urutan nomor RT/RW terpilih itu akan digunakan untuk konsumsi layanan 
 API input daftar KK.
 
-## POST /daftar-kk
+## POST /daftar-kk <a id="daftar-kk"></a>
 
 Menginput semua kepala keluarga yang ada di suatu RT/RW terpilih. Proses penginputan KK dilakukan berulang-ulang sebanyak RT/RW yg 
 terpilih yaitu sebanyak 4 R/RW yaitu: 91, 5, 22, 3. Jadi Lakukan 4x request ke url service API `/daftar-kk` dengan pola request
@@ -179,7 +193,7 @@ Lakukan lagi request ke url service API `/daftar-kk` untuk nomor selanjutnya yai
 
 Lakukan hal yg sama pada nomor yang selanjutnya.
 
-## GET /kk-terpilih/{email}
+## GET /kk-terpilih/{email} <a id="kk-terpilih"></a>
 
 Mengambil / mendapatkan semua KK yg terpilih. 
 
@@ -271,7 +285,7 @@ Mengambil / mendapatkan semua KK yg terpilih.
 }
 ```
 
-## POST /responden-terpilih
+## POST /responden-terpilih <a id="responden-terpilih"></a>
 
 Input daftar anggota keluarga di suatu KK yg terpilih, lalu mendapatkan anggota keluarga yg terpilih sebagai responden terpilih. 
 Setelah menginput KK - KK yang terpilih di semua RT/RW yg terpilih, maka akan didapatkan 2 KK yg terpilih di masing-masing RT/RW 
