@@ -179,6 +179,98 @@ Lakukan lagi request ke url service API `/daftar-kk` untuk nomor selanjutnya yai
 
 Lakukan hal yg sama pada nomor yang selanjutnya.
 
+## GET /kk-terpilih/{email}
+
+Mengambil / mendapatkan semua KK yg terpilih. 
+
+### Request
+
+`GET /kk-terpilih/desadua@yahoo.com`
+
+### Response (application/json)
+
+```json
+{
+  "data": {
+    "status": "success",
+    "rows": [
+      {
+        "survei_daftar_kk_id": 2,
+        "nama_kk": "Desi17_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 18,
+        "nama_kk": "Sasa16_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 106,
+        "nama_kk": "Ratna18_5",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 5,
+        "rt": "5",
+        "rw": "1",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 104,
+        "nama_kk": "Desi7_5",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 5,
+        "rt": "5",
+        "rw": "1",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 203,
+        "nama_kk": "Desi2_22",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 22,
+        "rt": "7",
+        "rw": "3",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 211,
+        "nama_kk": "Sari15_22",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 22,
+        "rt": "7",
+        "rw": "3",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 313,
+        "nama_kk": "Sari20_3",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 3,
+        "rt": "3",
+        "rw": "1",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 312,
+        "nama_kk": "Sari19_3",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 3,
+        "rt": "3",
+        "rw": "1",
+        "status": "Untitled"
+      }
+    ]
+  }
+}
+```
+
 ## POST /responden-terpilih
 
 Input daftar anggota keluarga di suatu KK yg terpilih, lalu mendapatkan anggota keluarga yg terpilih sebagai responden terpilih. 
