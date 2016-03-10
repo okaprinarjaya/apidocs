@@ -16,7 +16,7 @@ Untuk mereset data agar dapat mengulang melakukan test dari awal sampai akhir.
 
 ### Request
 
-`GET /reset-data'
+`GET /reset-data`
 
 ### Response
 
@@ -298,35 +298,61 @@ Total KK yg terpilih ada 8 KK yaitu dengan id KK sebagai berikut: `2, 18, 106, 1
 ### Request (Body: raw, application/json)
 ```json
 {
-    "data" : {
-        "phoneId" : "desadua@yahoo.com",
-        "kk_id" : 2,
-        "responden_status" : "Asli",
-        "kk_id_asli" : null,
-        "item_kk" : [
-            ["Member 1 KK 1", "L", 30, "Hubungan dengan member lainnya", "Keterangan 1"],
-            ["Member 2 KK 1", "P", 17, "Hubungan dengan member lainnya", "Keterangan 2"],
-            ["Member 3 KK 1", "P", 25, "Hubungan dengan member lainnya", "Keterangan 3"],
-            ["Member 4 KK 1", "P", 28, "Hubungan dengan member lainnya", "Keterangan 4"],
-            ["Member 5 KK 1", "L", 25, "Hubungan dengan member lainnya", "Keterangan 4"]
-        ]
-    }
+    "phoneId": "desadua@yahoo.com",
+    "kk_id": 2,
+    "responden_status": "Asli",
+    "kk_id_asli": null,
+    "item_kk": [
+        {
+            "nama": "Member 1 KK 1",
+            "jenis_kelamin": "L",
+            "usia": 30,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 1"
+        },
+        {
+            "nama": "Member 2 KK 1",
+            "jenis_kelamin": "P",
+            "usia": 17,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 2"
+        },
+        {
+            "nama": "Member 3 KK 1",
+            "jenis_kelamin": "P",
+            "usia": 25,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 3"
+        },
+        {
+            "nama": "Member 4 KK 1",
+            "jenis_kelamin": "P",
+            "usia": 28,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 4"
+        },
+        {
+            "nama": "Member 5 KK 1",
+            "jenis_kelamin": "L",
+            "usia": 25,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 5"
+        }
+    ]
 }
+
 ```
 
 ### Response (application/json)
 ```json
 {
-  "data": {
-    "status": "success",
-    "terpilih": {
-      "nama": "Member 5 KK 1",
-      "nomor_urut_kuisioner": 9,
-      "nama_kepala_keluarga": "Desi17_91",
-      "rw_rt": "9 / 7",
-      "status": "Asli"
-    }
-  }
+  "nama": "Member 5 KK 1",
+  "nomor_urut_kuisioner": 9,
+  "survei_daftar_rt_id": 91,
+  "kk_id": 2,
+  "nama_kepala_keluarga": "Desi17_91",
+  "rw_rt": "9 / 7",
+  "status": "Asli"
 }
 ```
 
@@ -336,20 +362,49 @@ ditentukan diatas. Berikut adalah contoh request kedua:
 ### Request kedua (Body: raw, application/json)
 ```json
 {
-    "data" : {
-        "phoneId" : "desadua@yahoo.com",
-        "kk_id" : 18,
-        "responden_status" : "Asli",
-        "kk_id_asli" : null,
-        "item_kk" : [
-            ["Member 1 KK 2", "L", 30, "Hubungan dengan member lainnya", "Keterangan 1"],
-            ["Member 2 KK 2", "P", 17, "Hubungan dengan member lainnya", "Keterangan 2"],
-            ["Member 3 KK 2", "P", 25, "Hubungan dengan member lainnya", "Keterangan 3"],
-            ["Member 4 KK 2", "P", 28, "Hubungan dengan member lainnya", "Keterangan 4"],
-            ["Member 5 KK 2", "L", 25, "Hubungan dengan member lainnya", "Keterangan 4"]
-        ]
-    }
+    "phoneId": "desadua@yahoo.com",
+    "kk_id": 18,
+    "responden_status": "Asli",
+    "kk_id_asli": null,
+    "item_kk": [
+        {
+            "nama": "Member 1 KK 1",
+            "jenis_kelamin": "L",
+            "usia": 30,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 1"
+        },
+        {
+            "nama": "Member 2 KK 1",
+            "jenis_kelamin": "P",
+            "usia": 17,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 2"
+        },
+        {
+            "nama": "Member 3 KK 1",
+            "jenis_kelamin": "P",
+            "usia": 25,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 3"
+        },
+        {
+            "nama": "Member 4 KK 1",
+            "jenis_kelamin": "P",
+            "usia": 28,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 4"
+        },
+        {
+            "nama": "Member 5 KK 1",
+            "jenis_kelamin": "L",
+            "usia": 25,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 5"
+        }
+    ]
 }
+
 ```
 
 ### Response (application/json)
@@ -390,19 +445,47 @@ PERHATIKAN! di json request data perbedaannya ada di `kk_id_pengganti` , `kk_id_
 ### Request (Body: raw, application/json)
 ```json
 {
-    "data" : {
-        "phoneId" : "desadua@yahoo.com",
-        "kk_id_pengganti" : 5,
-        "responden_status" : "Pengganti",
-        "kk_id_asli" : 2,
-        "nomor_urut_kuisioner" : 9,
-        "item_kk" : [
-            ["Member 1 KK Ganti", "L", 30, "Hubungan dengan member lainnya", "Keterangan 1"],
-            ["Member 2 KK Ganti", "P", 17, "Hubungan dengan member lainnya", "Keterangan 2"],
-            ["Member 3 KK Ganti", "P", 25, "Hubungan dengan member lainnya", "Keterangan 3"],
-            ["Member 4 KK Ganti", "P", 28, "Hubungan dengan member lainnya", "Keterangan 4"],
-            ["Member 5 KK Ganti", "L", 25, "Hubungan dengan member lainnya", "Keterangan 4"]
-        ]
-    }
+    "phoneId": "desadua@yahoo.com",
+    "kk_id_pengganti": 4,
+    "responden_status": "Pengganti",
+    "kk_id_asli": 2,
+    "nomor_urut_kuisioner": 9,
+    "item_kk": [
+        {
+            "nama": "Member 1 KK Ganti",
+            "jenis_kelamin": "L",
+            "usia": 30,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 1"
+        },
+        {
+            "nama": "Member 2 KK Ganti",
+            "jenis_kelamin": "P",
+            "usia": 17,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 2"
+        },
+        {
+            "nama": "Member 3 KK Ganti",
+            "jenis_kelamin": "P",
+            "usia": 25,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 3"
+        },
+        {
+            "nama": "Member 4 KK Ganti",
+            "jenis_kelamin": "P",
+            "usia": 28,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 4"
+        },
+        {
+            "nama": "Member 5 KK Ganti",
+            "jenis_kelamin": "L",
+            "usia": 25,
+            "hubungan": "Hubungan dengan member lainnya",
+            "catatan": "Keterangan 5"
+        }
+    ]
 }
 ```
