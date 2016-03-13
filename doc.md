@@ -301,7 +301,8 @@ Total KK yg terpilih ada 8 KK yaitu dengan id KK sebagai berikut: `2, 18, 106, 1
     "phoneId": "desadua@yahoo.com",
     "kk_id": 2,
     "responden_status": "Asli",
-    "kk_id_asli": null,
+    "kk_id_asli": 0,
+    "nomor_urut_kuisioner": 0,
     "item_kk": [
         {
             "nama": "Member 1 KK 1",
@@ -340,7 +341,6 @@ Total KK yg terpilih ada 8 KK yaitu dengan id KK sebagai berikut: `2, 18, 106, 1
         }
     ]
 }
-
 ```
 
 ### Response (application/json)
@@ -365,7 +365,8 @@ ditentukan diatas. Berikut adalah contoh request kedua:
     "phoneId": "desadua@yahoo.com",
     "kk_id": 18,
     "responden_status": "Asli",
-    "kk_id_asli": null,
+    "kk_id_asli": 0,
+    "nomor_urut_kuisioner": 0,
     "item_kk": [
         {
             "nama": "Member 1 KK 1",
@@ -404,7 +405,6 @@ ditentukan diatas. Berikut adalah contoh request kedua:
         }
     ]
 }
-
 ```
 
 ### Response (application/json)
@@ -610,17 +610,20 @@ Untuk melisting / menampilkan semua KK lainnya yg tidak terpilih. Dimana semua K
 ## POST /responden-terpilih-pengganti <a id="responden-terpilih-pengganti"></a>
 
 Input daftar anggota keluarga di suatu KK yg tidak terpilih, lalu mendapatkan anggota keluarga yg terpilih sebagai responden terpilih.
-PERHATIKAN! di json request data perbedaannya ada di `kk_id_pengganti` , `kk_id_asli` , `nomor_urut_kuisioner` . 
+PERHATIKAN! di json request data perbedaannya ada di `kk_id` , `kk_id_asli` , `nomor_urut_kuisioner` . 
 
-`kk_id_pengganti` didapatkan dari interaksi yg memanggil service `GET /kk-tidak-terpilih/{email}/{rtId}` .
+`kk_id` didapatkan dari interaksi yg memanggil service `GET /kk-tidak-terpilih/{email}/{rtId}` .
+
 `kk_id_asli` di-passing dari UI yang ada tampilan tombol PENGGANTI nya.
+
 `nomor_urut_kuisioner` di-passing juga dari UI yang ada tampilan tombol PENGGANTI nya.
+
 
 ### Request (Body: raw, application/json)
 ```json
 {
     "phoneId": "desadua@yahoo.com",
-    "kk_id_pengganti": 4,
+    "kk_id": 4,
     "responden_status": "Pengganti",
     "kk_id_asli": 2,
     "nomor_urut_kuisioner": 9,
@@ -661,5 +664,21 @@ PERHATIKAN! di json request data perbedaannya ada di `kk_id_pengganti` , `kk_id_
             "catatan": "Keterangan 5"
         }
     ]
+}
+```
+
+### Response (application/json)
+```json
+{
+  "data": {
+    "status": "success",
+    "terpilih": {
+      "nama": "Member 4 KK 2",
+      "nomor_urut_kuisioner": 10,
+      "nama_kepala_keluarga": "Sasa16_91",
+      "rw_rt": "9 / 7",
+      "status": "Pengganti"
+    }
+  }
 }
 ```
