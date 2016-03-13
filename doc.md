@@ -433,6 +433,180 @@ Untuk melisting / menampilkan semua KK lainnya yg tidak terpilih. Dimana semua K
 
 `GET /kk-tidak-terpilih/desadua@yahoo.com/91`
 
+### Response
+
+```json
+{
+  "data": {
+    "status": "success",
+    "rows": [
+      {
+        "survei_daftar_kk_id": 1,
+        "nama_kk": "Desi12_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 3,
+        "nama_kk": "Desi2_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 6,
+        "nama_kk": "Ratna18_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 7,
+        "nama_kk": "Ratna3_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 8,
+        "nama_kk": "Ratna8_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 9,
+        "nama_kk": "Sari10_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 10,
+        "nama_kk": "Sari14_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 11,
+        "nama_kk": "Sari15_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 12,
+        "nama_kk": "Sari19_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 13,
+        "nama_kk": "Sari20_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 14,
+        "nama_kk": "Sari4_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 15,
+        "nama_kk": "Sari5_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 16,
+        "nama_kk": "Sari9_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 17,
+        "nama_kk": "Sasa11_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 19,
+        "nama_kk": "Sasa1_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 20,
+        "nama_kk": "Sasa6_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 5,
+        "nama_kk": "Ratna13_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      },
+      {
+        "survei_daftar_kk_id": 4,
+        "nama_kk": "Desi7_91",
+        "jenis_kelamin": "Untitled",
+        "survei_daftar_rt_id": 91,
+        "rt": "7",
+        "rw": "9",
+        "status": "Untitled"
+      }
+    ]
+  }
+}
+```
+
 ## POST /responden-terpilih-pengganti <a id="responden-terpilih-pengganti"></a>
 
 Input daftar anggota keluarga di suatu KK yg tidak terpilih, lalu mendapatkan anggota keluarga yg terpilih sebagai responden terpilih.
